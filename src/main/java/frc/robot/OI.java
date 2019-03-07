@@ -25,6 +25,7 @@ public class OI {
   // Button button = new JoystickButton(stick, buttonNumber);
 
   Joystick stick = new Joystick(0);
+  Joystick liftstick = new Joystick(1);
 
   public double getTwist() {
     return stick.getTwist();
@@ -36,15 +37,16 @@ public class OI {
     return stick.getY();
   }
   public double getSlider() {
-    return -stick.getRawAxis(3);
+    return -liftstick.getRawAxis(3);
   }
+
 
   Button GrabberInButton = new JoystickButton(stick, 1);
   Button GrabberOutButton = new JoystickButton(stick, 2);
 
   //Button liftUpButton = new JoystickButton(stick, 5);
-  Button liftLoadCargoButton = new JoystickButton(stick, 11);
-  Button liftSafetyButton = new JoystickButton (stick, 12);
+  Button liftLoadCargoButton = new JoystickButton(liftstick, 11);
+  Button liftSafetyButton = new JoystickButton (liftstick, 12);
 
   public OI() {
     GrabberInButton.whileHeld(new GrabberIn());
